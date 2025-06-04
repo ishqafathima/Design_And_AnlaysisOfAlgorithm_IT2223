@@ -2,6 +2,7 @@ arr = 1:1000;
 
 target = 100;
 
+%Linear
 tic;
 found_linear = false;
 for i = 1:length(arr)
@@ -15,6 +16,7 @@ time_linear = toc;
 
 sorted_data = sort(arr);
 
+%Binary
 tic;
 left = 1;
 right = length(sorted_data);
@@ -34,3 +36,10 @@ time_binary = toc;
 
 fprintf('Linear Search Time: %.8f seconds\n', time_linear);
 fprintf('Binary Search Time: %.8f seconds\n', time_binary);
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Output:
+>> Comparetime
+Linear Search Time: 0.05924760 seconds
+Binary Search Time: 0.07557640 seconds
