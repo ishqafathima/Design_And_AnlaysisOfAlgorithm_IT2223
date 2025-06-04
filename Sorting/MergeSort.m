@@ -1,33 +1,47 @@
 %merge sort
 %[8,3,5,1,7,2]
+
 Arr=[8,3,5,1,7,2];
 disp("Original Array");
 disp(Arr);
+SortedArray = MergeSort(Arr);
+disp("Sorted Array:");
+disp(SortedArray);
 
-n=length(Arr);
-function sortedArray = MergeSort(arr)
-    if length(arr) <= 1
+%n=length(Arr);
+function sortedArray = MergeSort(Arr)
+    if length(Arr) <= 1
         sortedArray = Arr;
         return;
     end
     
-    mid = floor(length(arr) / 2);
-    leftHalf = MergeSort(arr(1:mid));
-    rightHalf = MergeSort(arr(mid+1:end));
+    mid = floor(length(Arr) / 2);
+    leftHalf = MergeSort(Arr(1:mid));
+    rightHalf = MergeSort(Arr(mid+1:end));
     
     sortedArray = Merge(leftHalf, rightHalf);
 end
 
-function mergedArray = Merge(leftArr, rightArr)
-    mergedArray = [];
+function mergedArrray = Merge(leftArr, rightArr)
+    mergedArrray = [];
     while ~isempty(leftArr) && ~isempty(rightArr)
         if leftArr(1) <= rightArr(1)
-            mergedArray = [mergedArray, leftArr(1)];
+            mergedArrray = [mergedArrray, leftArr(1)];
             leftArr(1) = [];
         else
-            mergedArray = [mergedArray, rightArr(1)];
+            mergedArrray = [mergedArrray, rightArr(1)];
             rightArr(1) = [];
         end
     end
-    mergedArray = [mergedArray, leftArr, rightArr];
+    mergedArrray = [mergedArrray, leftArr, rightArr];
 end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Output:
+>> mergedArrray
+Original Array
+     8     3     5     1     7     2
+
+Sorted Array:
+     1     2     3     5     7     8
